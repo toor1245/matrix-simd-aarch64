@@ -4,7 +4,7 @@
 ### x0 holds number of rows
 ### x1 holds number of columns
     .global matrix_create
-    .type	matrix_create, %function
+    .type   matrix_create, %function
 matrix_create:
     stp     x19, x20, [sp, #-16]!
     stp     x21, x22, [sp, #-16]!
