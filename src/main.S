@@ -9,5 +9,6 @@ main:
     mov     x0, #5
     mov     x1, #5
     bl      matrix_create
+    mov     w0, #0
     ret
     .size   main, . - main

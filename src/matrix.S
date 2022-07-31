@@ -9,6 +9,7 @@ matrix_create:
     stp     x19, x20, [sp, #-16]!
     stp     x21, x22, [sp, #-16]!
     stp     x23, x24, [sp, #-16]!
+    stp     x29, x30, [sp, #-16]!
     mov     x20, x0                         // rows
     mov     x21, x1                         // columns
     mul     x22, x0, x1                     // length
@@ -25,10 +26,13 @@ matrix_create:
     mov     x1, #0
 1:  
     cmp     x1, x22
+    beq     2f
     str     wzr, [x0, x1, lsl #2]
     add     x1, x1, #1
-    bne     1b
+    b       1b
+2:
     mov     x0, x23
+    ldp	    x29, x30, [sp], #16
     ldp	    x23, x24, [sp], #16
     ldp	    x21, x22, [sp], #16
     ldp	    x19, x20, [sp], #16
